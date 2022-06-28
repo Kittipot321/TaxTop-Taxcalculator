@@ -1,7 +1,18 @@
 const calculateFunction = () => {
     let text = document.getElementById("amount").value
-    let answer = calculateTax(text)
-    document.getElementById("answer").innerHTML = answer
+    let AmountFloat = parseFloat(text)
+    if (parseFloat(AmountFloat) < 0){
+        alert("ระบบไม่รับเลขจำนวนติดลบ กรุณาลองใหม่อีกครั้ง")
+        clearNumber()
+    }
+    else if (parseFloat(AmountFloat) >= 0){
+        let answer = calculateTax(text)
+        document.getElementById("answer").innerHTML = answer
+    }
+    else{
+        alert("เลขจำนวนไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง")
+        clearNumber()
+    }
 }
 
 const calculateTax = (num) => {
@@ -23,4 +34,9 @@ const calculateTax = (num) => {
     else if (num > 4000000)
         total = ((num - 4000000) * 0.35) + 965000
     return total.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+}
+
+const clearNumber = () => {
+    document.getElementById("amount").value = ""
+    document.getElementById("answer").innerHTML = "0.00"
 }

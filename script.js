@@ -29,10 +29,10 @@ const calculateTax = (num) => {
         total = ((num - 750000) * 0.20) + 65000
     else if (num > 1000000 && num <= 2000000)
         total = ((num - 1000000) * 0.25) + 115000
-    else if (num > 2000000 && num <= 4000000)
+    else if (num > 2000000 && num <= 5000000)
         total = ((num - 2000000) * 0.30) + 365000
-    else if (num > 4000000)
-        total = ((num - 4000000) * 0.35) + 965000
+    else if (num > 5000000)
+        total = ((num - 5000000) * 0.35) + 965000
     return total.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
